@@ -1,0 +1,9 @@
+<%= simple_form_for @material, html: {class: "form-inline", id: "material-form"} , remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.input_field :index, placeholder: "Indeks" %>
+  <%= f.input_field :name, placeholder: "Nazwa" %>
+  <%= f.input_field :unit, placeholder: "Jednostka" %>
+  <%= f.input_field :price, placeholder: "Cena" %>
+  <%= f.button :submit %>
+<% end %>
+

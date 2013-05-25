@@ -1,0 +1,4 @@
+ $("#materials_list").html("<%= escape_javascript( render(:partial => "materials") ) %>");
+	$("#flash").html("<%= escape_javascript(render :partial => 'partials/flash' , :locals => { :flash => flash }).html_safe %>");
+ $("#material-form")[0].reset();
+ $("#flash").show(1000).delay(2000).hide(1000)

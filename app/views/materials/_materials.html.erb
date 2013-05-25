@@ -1,0 +1,46 @@
+<%= form_tag destroy_multiple_materials_path, method: :delete, id: "destroy-form", remote: true do %>
+
+<table class="table datatable">
+ <thead> 
+  <tr>
+    <th>Delete</th>
+    <th>Indeks</th>
+    <th>Nazwa</th>
+    <th>Jednostka</th>
+    <th>Cena</th>
+    <th>Cena z transportem</th>
+    
+  </tr>
+</thead>
+<tbody>
+<% @materials.each do |material| %>
+  <tr>
+    <td><%= check_box_tag "material_ids[]", material.id %></td>
+    <td><%= best_in_place material, :index, type: :input %></td>
+    <td><%= best_in_place material, :name, type: :input %></td>
+    <td><%= best_in_place material, :unit, type: :input %></td>
+    <td><%= best_in_place material, :price, type: :input, data: {id: material.id}, classes: "price" %></td>
+    <td id=<%= "material_#{material.id}"%>> <%= material.transport_price %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+ <%= submit_tag "Usuń zaznaczone", data: {confirm: "Czy napewno usunąć zaznaczone elementy?"}, class: "btn btn-warning" %>
+ <% end %>
+ 
+<!-- load dataTAbles -->
+<script>
+var oTable;
+
+    $(document).on('ajax:beforeSend', "#destroy-form", function (e, xhr, settings) {
+        var sData = $('input', oTable.fnGetNodes()).serializeArray();
+        settings.data += '&' + $.param(sData);
+    });
+    
+
+oTable = $('.datatable').dataTable({
+  "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+  "sPaginationType": "bootstrap",
+  "sWrapper": "span12"
+});
+</script>

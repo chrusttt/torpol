@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  
+  	<%= f.input :material_id,
+  	collection: Material.all,
+  	include_blank: true,
+  	input_html: { class: 'chzn-select' }
+			%>
+  
+  <%= f.input :value, wrapper: :inline %>
+  <%= link_to_remove_association "Usuń ten materiał", f %>
+</div>
+
+
+<%= javascript_include_tag "norms" %>

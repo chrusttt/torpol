@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Index:</b>
+  <%= @norm.index %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @norm.name %>
+</p>
+
+<p>
+	<table class="table table-bordered">
+		<thead>
+			<th>Materiał:</th>
+			<th>Ilość:</th>
+			<th>Cena:</th>
+		</thead>
+		<tbody>
+			<% @norm.quantities.each do |q| %>
+			<tr>
+			<td><%= best_in_place q.material, :name %></td>
+			<td><%= q.value %></td>
+			<td><%= q.partial_price %></td>
+			</tr>
+			<%end%>
+		</tbody>
+		<tfoot>
+			<td></td>
+			<td></td>
+			<td>Suma: <b><%= @norm.final_price %></b></td>
+		</tfoot>
+	</table>
+</p>
+
+
+<%= link_to 'Edit', edit_norm_path(@norm) %> |
+<%= link_to 'Back', norms_path %>

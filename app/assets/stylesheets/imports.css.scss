@@ -1,0 +1,24 @@
+$btnPrimaryBackground: #f00;
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+body{
+	padding: 10px;
+	padding-top: 60px;	
+}
+
+div.row-fluid{
+	margin: 0 auto;
+}
+table{
+	width: 100%;
+}
+div.form-inline,
+div.control-group{
+	display: inline-block;
+}
+
+#destroy-form,
+.dataTables_wrapper{
+	width: 100%;
+}

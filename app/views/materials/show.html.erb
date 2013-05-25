@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Index:</b>
+  <%= @material.index %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @material.price %>
+</p>
+
+<p>
+  <b>Transport price:</b>
+  <%= @material.transport_price %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @material.name %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%= @material.unit %>
+</p>
+
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>

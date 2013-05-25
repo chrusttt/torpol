@@ -1,0 +1,30 @@
+<div class="span12">
+<table class="table datatable">
+  <thead>
+    <th>Index</th>
+    <th>Name</th>
+    <th></th>
+  </thead>
+<tbody>
+<% @norms.each do |norm| %>
+  <tr>
+    <td><%= norm.index %></td>
+    <td><%= link_to "#{norm.name}", norm_path(norm) %></td>
+    <td>
+        <%= render 'norms/materials_list', norm: norm %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Norm', new_norm_path %>
+</div>
+<script>
+$('.datatable').dataTable({
+  "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+  "sPaginationType": "bootstrap",
+  "sWrapper": "span12" });
+  </script>

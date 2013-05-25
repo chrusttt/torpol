@@ -1,0 +1,8 @@
+ <%= button_to 'Nowy materiał', new_material_path, method: "get",    class: 'btn btn-info', remote: true %>
+<br />
+<div id="material_form"></div>
+<div id="error_messages"></div>
+
+    <div id="materials_list" class="span12">
+    <%= render 'materials' %>
+    </div>

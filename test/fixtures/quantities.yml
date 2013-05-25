@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantity: MyString
+  material: 
+  norm: 
+
+two:
+  quantity: MyString
+  material: 
+  norm: 
