@@ -1,0 +1,11 @@
+<div id="container">
+	<h1>Cenniki</h1>
+	{{view Torpol.NewPricelistView }}
+
+	 <ul class="nav nav-list">
+      <li class="nav-header">All contacts</li>
+      {{#each controller}}
+        <li>{{name}} + {{vat}}</li>
+      {{/each}}
+    </ul>
+</div>

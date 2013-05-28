@@ -1,7 +1,11 @@
 Torpol::Application.routes.draw do
   
+  resources :pricelists
   resources :norms
-
+  get 'pricelists/ember'
+  root to: 'pricelists#ember'
+  
+  
 
   resources :materials do
     collection do

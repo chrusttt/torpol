@@ -23,6 +23,7 @@ group :assets do
 end
 
 gem 'ember-rails'
+
 group :development do 
 	gem 'better_errors'
 	gem 'guard-livereload'
@@ -51,4 +52,4 @@ gem 'cocoon'
 
 gem 'chosen-rails'
 
-gem "validate_uniqueness_of_in_memory"
+gem "active_model_serializers"

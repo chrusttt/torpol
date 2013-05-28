@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517094102) do
+ActiveRecord::Schema.define(:version => 20130528121149) do
+
+  create_table "detail_prices", :force => true do |t|
+    t.float    "value"
+    t.integer  "pricelist_id"
+    t.integer  "norm_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "detail_prices", ["norm_id"], :name => "index_detail_prices_on_norm_id"
+  add_index "detail_prices", ["pricelist_id"], :name => "index_detail_prices_on_pricelist_id"
 
   create_table "materials", :force => true do |t|
     t.string   "index"
@@ -30,6 +41,13 @@ ActiveRecord::Schema.define(:version => 20130517094102) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "pricelists", :force => true do |t|
+    t.string   "name"
+    t.float    "vat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "quantities", :force => true do |t|
     t.integer  "material_id"
     t.integer  "norm_id"
@@ -39,5 +57,7 @@ ActiveRecord::Schema.define(:version => 20130517094102) do
   end
 
   add_index "quantities", ["material_id"], :name => "index_quantities_on_material_id"
+  add_index "quantities", ["norm_id", "material_id"], :name => "index_quantities_on_norm_id_and_material_id", :unique => true
   add_index "quantities", ["norm_id"], :name => "index_quantities_on_norm_id"
+
 end

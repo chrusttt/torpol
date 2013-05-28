@@ -1,0 +1,1 @@
+Torpol.ApplicationController = Ember.Controller.extend()

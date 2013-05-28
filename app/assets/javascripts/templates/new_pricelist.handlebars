@@ -1,0 +1,10 @@
+{{view Ember.TextField valueBinding="view.name"}}
+{{view Ember.TextField valueBinding="view.vat"}}
+{{view Ember.TextField valueBinding="view.price" placeholder="Number"}}
+{{#each detail_prices}}
+      <div class="phone-number">
+        {{view Ember.TextField valueBinding="value" placeholder="Number"}}
+      </div>
+{{/each}}
+        <a class="btn" {{action addPrice}}><i class="icon-plus-sign"></i> Add a phone number</a>	
+<input type="submit" value="Add">

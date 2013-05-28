@@ -1,8 +1,11 @@
 class Norm < ActiveRecord::Base
-  attr_accessible :index, :name, :price, :quantities_attributes
+  attr_accessible :index, :name, :quantities_attributes
   has_many :quantities
   has_many :materials, through: :quantities
   accepts_nested_attributes_for :quantities, reject_if: :all_blank, allow_destroy: true
+
+  has_many :detail_prices
+  has_many :pricelists, through: :detail_prices
 
   validates_presence_of :name, :index
   validates_uniqueness_of :index  
